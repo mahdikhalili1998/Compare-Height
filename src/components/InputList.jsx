@@ -4,14 +4,13 @@ import { useContext } from "react";
 import { InfoContext } from "../context/Provider";
 import UserInfoC from "./UserInfo";
 import { NavLink } from "react-router-dom";
-import Loading from "../pages/Loading";
-
+import Result from "../components/Result";
 function InputList() {
-  const result = useContext(InfoContext);
-  const { compareHandler } = result;
+  const resultfake = useContext(InfoContext);
+  const { compareHandler, result } = resultfake;
 
   return (
-    <>
+    <div className={styles.Ri}>
       <div className={styles.firstContainer}>
         <div className={styles.InFirst}>
           <UserInfoC />
@@ -20,7 +19,10 @@ function InputList() {
           </button>
         </div>
       </div>
-    </>
+      <div className={!result ? styles.result : styles.hide}>
+        <Result />
+      </div>
+    </div>
   );
 }
 

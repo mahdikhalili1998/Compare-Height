@@ -1,7 +1,7 @@
 import React, { useContext, useReducer, useState } from "react";
 import { createContext } from "react";
-export const InfoContext = createContext();
 
+export const InfoContext = createContext();
 const initialstate = { gender: "man", name: "", height: "" };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -32,17 +32,19 @@ function Provider({ children }) {
   const [UserInfo, dispatch] = useReducer(reducer, initialstate);
   const [count, setCount] = useState(0);
   const [save, setSave] = useState({});
-  console.log(save);
+  const [result, setResult] = useState(true);
+
   const compareHandler = () => {
     setCount((count) => count + 1);
     setSave((save) => ({ ...save, [count]: UserInfo }));
     dispatch({ type: "save" });
+    setResult(false);
   };
 
   return (
     <div>
       <InfoContext.Provider
-        value={{ UserInfo, dispatch, compareHandler, reducer }}
+        value={{ UserInfo, dispatch, compareHandler, reducer, result, save }}
       >
         {children}
       </InfoContext.Provider>

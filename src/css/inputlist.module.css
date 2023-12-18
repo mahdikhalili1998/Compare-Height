@@ -33,7 +33,7 @@
 .containerB select {
   background-color: inherit;
   color: #7b7e81;
-  padding: .3rem .7rem;
+  padding: 0.3rem 0.7rem;
   border: 1.5px dotted #f3f0ff;
   border-radius: 5px;
 }
@@ -72,6 +72,17 @@
 ::placeholder {
   color: #7b7e81;
   text-align: center;
+}
+.Ri {
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+}
+.result {
+  margin-left: 1rem;
+  justify-self: center;
+}
+.hide {
+  display: none;
 }
 @media (max-width: 387px) {
 }
