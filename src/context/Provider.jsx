@@ -4,24 +4,24 @@ export const InfoContext = createContext();
 
 const initialstate = { gender: "man", name: "", height: "" };
 const reducer = (state, action) => {
-  switch (action.type[0]) {
+  switch (action.type) {
     case "gender":
-      return { ...state, gender: action.payload[0] };
+      return { ...state, gender: action.payload };
     case "name":
-      return { ...state, name: action.payload[0] };
+      return { ...state, name: action.payload };
     case "height":
-      return { ...state, height: action.payload[0] };
+      return { ...state, height: action.payload };
     case "save":
       return { gender: "man", name: "", height: "" };
     default:
       break;
   }
-  switch (action.type[1]) {
+  switch (action.type) {
     case "save":
       return {
-        grnder: action.payload[1],
-        name: action.payload[1],
-        height: action.payload[1],
+        grnder: "man",
+        name: "",
+        height: "",
       };
     default:
       break;
@@ -36,6 +36,7 @@ function Provider({ children }) {
   const compareHandler = () => {
     setCount((count) => count + 1);
     setSave((save) => ({ ...save, [count]: UserInfo }));
+    dispatch({ type: "save" });
   };
 
   return (

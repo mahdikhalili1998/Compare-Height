@@ -1,35 +1,64 @@
-.container {
-  display: flex;
-  justify-content: space-around;
+.firstContainer {
+  text-align: left;
+  width: fit-content;
+  margin-left: 3rem;
+  border: 1.5px solid #b197fc;
   margin-bottom: 4rem;
+  border-radius: 0.5rem;
+  background-color: #f3f0ff;
+  outline: 0.8rem solid #f3f0ff;
+}
+.InFirst {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+}
+.containerB {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #d0bfff;
+  padding: 0.4rem 0.6rem;
+  outline: 0.5rem solid #d0bfff;
+  /* border: 1.5px dotted #f3f0ff; */
+  border-radius: 0.5rem;
+}
+.containerB label {
+  font-size: 1.4rem;
+  color: #7b7e81;
+}
+.containerB select {
+  background-color: inherit;
+  color: #7b7e81;
+  padding: .3rem .7rem;
+  border: 1.5px dotted #f3f0ff;
+  border-radius: 5px;
+}
+.containerC {
+  display: flex;
+  gap: 1.4rem;
+}
+.containerC input {
+  width: 10rem;
+  padding: 0.4rem 0.6rem;
+  background-color: #d0bfff;
+  outline: 0.5rem solid #d0bfff;
+  border: 1.5px dotted #f3f0ff;
+  border-radius: 0.5rem;
 }
 .containerA {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-.containerA div {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  background-color: #d0bfff;
-
-  color: #868e96;
-}
-.containerA div label {
-  font-size: 1.8rem;
-}
-.containerA select option {
-  color: red;
-}
-.bt {
+  gap: 1.8rem;
 }
 .navii {
   text-decoration: none;
   background-color: #b197fc;
-
   font-size: 1.8rem;
   width: 15rem;
   padding: 0.3rem 0.8rem;
@@ -39,36 +68,10 @@
   /* padding-bottom: 0.5rem; */
   color: #f3f0ff;
 }
-.containerA select,
-input {
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  border: 1.5px dashed #868e96;
-  background-color: #d0bfff;
-  outline: 0.5rem solid #d0bfff;
-  color: #868e96;
-}
-.hide {
-  display: none;
-}
-.show {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
 
 ::placeholder {
   color: #7b7e81;
+  text-align: center;
 }
 @media (max-width: 387px) {
-  .containerA {
-    width: 15rem;
-  }
-  .containerA div label {
-    display: none;
-  }
-  .containerA div select {
-    width: 20rem;
-  }
 }

@@ -14,17 +14,14 @@ function InputList() {
 
   return (
     <>
-      <div className={!loading ? styles.hide : styles.show}>
-        <div className={styles.container}>
+      <div className={styles.firstContainer}>
+        <div className={styles.InFirst}>
           <UserInfoC />
-        </div>
-        <div style={{ textAlign: "center" }}>
           <button onClick={compareHandler} className={styles.navii}>
             Add Person
           </button>
         </div>
       </div>
-      {!loading ? <Loading /> : null}
     </>
   );
 }
