@@ -32,12 +32,14 @@ const reducer = (state, action) => {
 function Provider({ children }) {
   const [UserInfo, dispatch] = useReducer(reducer, initialstate);
   const [count, setCount] = useState(0);
-  const [save, setSave] = useState({});
+  const [save, setSave] = useState([]);
+
   const [result, setResult] = useState(true);
 
   const compareHandler = () => {
     setCount((count) => count + 1);
-    setSave((save) => ({ ...save, [count]: { ...UserInfo, id: uuidv4() } }));
+    setSave({ ...UserInfo, id: uuidv4() });
+
     dispatch({ type: "save" });
     setResult(false);
   };
@@ -52,6 +54,7 @@ function Provider({ children }) {
           reducer,
           result,
           save,
+
           count,
         }}
       >

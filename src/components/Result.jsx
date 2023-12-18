@@ -5,10 +5,13 @@ import { IoWoman } from "react-icons/io5";
 function Result() {
   const fakeresult = useContext(InfoContext);
   const { Result, save, count } = fakeresult;
-  console.log(save);
+
   return (
     <div>
-      <ul></ul>
+      <div style={{ fontSize: "4rem" }}>
+        {/* {count.gender === "man" ? <IoManSharp /> : <IoWoman />}
+        {count.gender === "man" ? <IoManSharp /> : <IoWoman />} */}
+      </div>
     </div>
   );
 }
