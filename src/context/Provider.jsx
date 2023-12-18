@@ -11,7 +11,8 @@ const reducer = (state, action) => {
       return { ...state, name: action.payload[0] };
     case "height":
       return { ...state, height: action.payload[0] };
-
+    case "save":
+      return { gender: "man", name: "", height: "" };
     default:
       break;
   }
@@ -26,14 +27,22 @@ const reducer = (state, action) => {
       break;
   }
 };
+
 function Provider({ children }) {
   const [UserInfo, dispatch] = useReducer(reducer, initialstate);
-  console.log(UserInfo);
+  const [count, setCount] = useState(0);
   const [save, setSave] = useState({});
+  console.log(save);
+  const compareHandler = () => {
+    setCount((count) => count + 1);
+    setSave((save) => ({ ...save, [count]: UserInfo }));
+  };
 
   return (
     <div>
-      <InfoContext.Provider value={{ UserInfo, dispatch, reducer }}>
+      <InfoContext.Provider
+        value={{ UserInfo, dispatch, compareHandler, reducer }}
+      >
         {children}
       </InfoContext.Provider>
     </div>

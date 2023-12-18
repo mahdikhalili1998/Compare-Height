@@ -8,13 +8,9 @@ import Loading from "../pages/Loading";
 
 function InputList() {
   const result = useContext(InfoContext);
-  const { UserInfo, dispatch, save, setSave, reducer } = result;
+  const { compareHandler } = result;
   const [loading, setLoading] = useState(true);
   //   console.log(loading);
-  const compareHandler = () => {
-    setSave({ ...save, UserInfo });
-    reducer(UserInfo, dispatch);
-  };
 
   return (
     <>
