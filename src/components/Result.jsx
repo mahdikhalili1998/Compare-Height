@@ -4,12 +4,11 @@ import { IoManSharp } from "react-icons/io5";
 import { IoWoman } from "react-icons/io5";
 function Result() {
   const fakeresult = useContext(InfoContext);
-  const { Result, save } = fakeresult;
+  const { Result, save, count } = fakeresult;
   console.log(save);
   return (
     <div>
-      <IoManSharp />
-      <IoWoman />
+      <ul></ul>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React, { useContext, useReducer, useState } from "react";
 import { createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const InfoContext = createContext();
-const initialstate = { gender: "man", name: "", height: "" };
+const initialstate = { gender: "man", name: "", height: "", id: 0 };
 const reducer = (state, action) => {
   switch (action.type) {
     case "gender":
@@ -36,7 +37,7 @@ function Provider({ children }) {
 
   const compareHandler = () => {
     setCount((count) => count + 1);
-    setSave((save) => ({ ...save, [count]: UserInfo }));
+    setSave((save) => ({ ...save, [count]: { ...UserInfo, id: uuidv4() } }));
     dispatch({ type: "save" });
     setResult(false);
   };
@@ -44,7 +45,15 @@ function Provider({ children }) {
   return (
     <div>
       <InfoContext.Provider
-        value={{ UserInfo, dispatch, compareHandler, reducer, result, save }}
+        value={{
+          UserInfo,
+          dispatch,
+          compareHandler,
+          reducer,
+          result,
+          save,
+          count,
+        }}
       >
         {children}
       </InfoContext.Provider>
