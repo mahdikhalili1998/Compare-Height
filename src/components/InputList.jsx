@@ -9,8 +9,6 @@ import Loading from "../pages/Loading";
 function InputList() {
   const result = useContext(InfoContext);
   const { compareHandler } = result;
-  const [loading, setLoading] = useState(true);
-  //   console.log(loading);
 
   return (
     <>
