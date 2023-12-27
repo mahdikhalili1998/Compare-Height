@@ -12,10 +12,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: -9rem;
+  margin-left: -7rem;
 }
 .nh {
   font-size: 1.5rem;
 }
-.icon {
+.show_reload {
+}
+.hide {
+  display: none;
 }

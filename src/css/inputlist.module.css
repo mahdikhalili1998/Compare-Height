@@ -102,5 +102,8 @@
 
 .input_border {
 }
-@media (max-width: 387px) {
+@media (max-width: 550px) {
+  .Ri {
+    gap: 1rem;
+  }
 }
