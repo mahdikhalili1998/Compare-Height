@@ -1,7 +1,8 @@
 import React, { useContext, useReducer, useState } from "react";
 import { createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
-
+import styles from "../css/result.module.css";
+import Result from "../components/Result";
 export const InfoContext = createContext();
 const initialstate = { gender: "man", name: "", height: "", id: 0 };
 const reducer = (state, action) => {
@@ -31,17 +32,27 @@ const reducer = (state, action) => {
 
 function Provider({ children }) {
   const [UserInfo, dispatch] = useReducer(reducer, initialstate);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(-1);
   const [save, setSave] = useState([]);
-
-  const [result, setResult] = useState(true);
-
+  const [empty, setEmpty] = useState(false);
+  const [timeclass, setTimeclass] = useState(true);
+  const [next, setNext] = useState(true);
+  console.log(empty);
   const compareHandler = () => {
     setCount((count) => count + 1);
-    setSave({ ...UserInfo, id: uuidv4() });
+    {
+      !empty ? setSave([]) : save.push({ ...UserInfo, id: uuidv4() });
+    }
 
     dispatch({ type: "save" });
-    setResult(false);
+    if (!empty) {
+      setTimeout(() => {
+        setTimeclass(false);
+        setTimeout(() => {
+          setTimeclass(true);
+        }, 2000);
+      }, 0);
+    }
   };
 
   return (
@@ -52,10 +63,14 @@ function Provider({ children }) {
           dispatch,
           compareHandler,
           reducer,
-          result,
           save,
-
           count,
+          timeclass,
+          setTimeclass,
+          empty,
+          setEmpty,
+          next,
+          setNext,
         }}
       >
         {children}

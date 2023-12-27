@@ -1,11 +1,10 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import styles from "../css/inputlist.module.css";
 import { InfoContext } from "../context/Provider";
 
 function UserInfoC() {
-  const result = useContext(InfoContext);
-  const { UserInfo, dispatch } = result;
-  // console.log(UserInfo);
+  const { UserInfo, dispatch, empty, setEmpty, count } =
+    useContext(InfoContext);
 
   return (
     <div className={styles.containerA}>
@@ -26,6 +25,7 @@ function UserInfoC() {
       </div>
       <div className={styles.containerC}>
         <input
+          className={styles.inputs}
           type="text"
           placeholder="  Name"
           value={UserInfo.name}
@@ -37,15 +37,23 @@ function UserInfoC() {
           }
         />
         <input
+          className={
+            count > -1
+              ? !empty
+                ? styles.inputs_error
+                : styles.inputs
+              : styles.inputs
+          }
           type="number"
           placeholder="Height (cm)"
           value={UserInfo.height}
-          onChange={(e) =>
+          onChange={(e) => {
+            e.target.value ? setEmpty(true) : setEmpty(false);
             dispatch({
               type: "height",
               payload: e.target.value,
-            })
-          }
+            });
+          }}
         />
       </div>
     </div>

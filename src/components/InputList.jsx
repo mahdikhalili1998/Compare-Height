@@ -5,21 +5,28 @@ import { InfoContext } from "../context/Provider";
 import UserInfoC from "./UserInfo";
 import { NavLink } from "react-router-dom";
 import Result from "../components/Result";
+
 function InputList() {
-  const resultfake = useContext(InfoContext);
-  const { compareHandler, result } = resultfake;
+  const { compareHandler, timeclass, empty, count, save } =
+    useContext(InfoContext);
 
   return (
     <div className={styles.Ri}>
       <div className={styles.firstContainer}>
         <div className={styles.InFirst}>
           <UserInfoC />
+          <div className={styles.error}>
+            <p className={!timeclass ? styles.error : styles.hide}>
+              fill the blanke
+            </p>
+          </div>
           <button onClick={compareHandler} className={styles.navii}>
             Add Person
           </button>
         </div>
       </div>
-      <div className={!result ? styles.result : styles.hide}>
+
+      <div className={empty ? styles.result : styles.hide}>
         <Result />
       </div>
     </div>

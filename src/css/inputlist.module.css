@@ -41,12 +41,20 @@
   display: flex;
   gap: 1.4rem;
 }
-.containerC input {
+.inputs {
   width: 10rem;
   padding: 0.4rem 0.6rem;
   background-color: #d0bfff;
   outline: 0.5rem solid #d0bfff;
   border: 1.5px dotted #f3f0ff;
+  border-radius: 0.5rem;
+}
+.inputs_error {
+  width: 10rem;
+  padding: 0.4rem 0.6rem;
+  background-color: #d0bfff;
+  outline: 0.5rem solid #d0bfff;
+  border: 1.8px solid rgb(228, 4, 4);
   border-radius: 0.5rem;
 }
 .containerA {
@@ -74,15 +82,25 @@
   text-align: center;
 }
 .Ri {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 3fr;
 }
 .result {
   margin-left: 1rem;
+  margin-bottom: 2rem;
   justify-self: center;
 }
 .hide {
   display: none;
+}
+.error {
+  color: red;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 1.7rem;
+}
+
+.input_border {
 }
 @media (max-width: 387px) {
 }
