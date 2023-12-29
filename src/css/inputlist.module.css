@@ -89,6 +89,8 @@
   margin-left: 1rem;
   margin-bottom: 2rem;
   justify-self: center;
+  justify-self: center;
+  align-self: center;
 }
 .hide {
   display: none;
@@ -98,12 +100,19 @@
   font-size: 1rem;
   font-weight: 500;
   height: 1.7rem;
+  text-transform: capitalize;
 }
 
 .input_border {
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .Ri {
-    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .firstContainer{
+    margin-bottom: 8rem;
   }
 }

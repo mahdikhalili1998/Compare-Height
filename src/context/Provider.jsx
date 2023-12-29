@@ -37,7 +37,7 @@ function Provider({ children }) {
   const [empty, setEmpty] = useState(false);
   const [timeclass, setTimeclass] = useState(true);
   const [next, setNext] = useState(true);
-
+  console.log(empty);
   const compareHandler = () => {
     setCount((count) => count + 1);
     {

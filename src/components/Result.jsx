@@ -17,7 +17,7 @@ function Result() {
   return (
     <>
       {save.length > 2 ? (
-        <div>
+        <div className={styles.e2}>
           <p>just two people can add</p>
           {!reload ? window.location.reload() : null}
         </div>

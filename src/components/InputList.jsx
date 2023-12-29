@@ -26,7 +26,7 @@ function InputList() {
         </div>
       </div>
 
-      <div className={empty ? styles.result : styles.hide}>
+      <div className={styles.Result}>
         <Result />
       </div>
     </div>
